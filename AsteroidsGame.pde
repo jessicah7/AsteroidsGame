@@ -1,18 +1,35 @@
 //variable declarations
-Star[] mySky = new Star[150];
+Star[] mySky = new Star[250];
 Spaceship myShip = new Spaceship();
 
 public void setup() 
 {
   size(800,600);
-  background(87, 8, 97);
   for (int i = 0; i < mySky.length; i++) {
-     Star bob = new Star();
-     bob.show();
+    mySky[i] = new Star();
   }
-  
 }
 public void draw() 
 {
+  background(0, 0, 0);
+  for (int i = 0; i < mySky.length; i++) {
+     mySky[i].show();
+  }
   myShip.show();
+  myShip.move();
+}
+
+public void keyPressed() {
+   //accelerate
+   if(key == 'w') 
+     myShip.accelerate(0.4);
+   //turn left
+   if(key == 'a')
+     myShip.turn(-10);
+   //turn right
+   if(key == 'd')
+     myShip.turn(10);
+   //hyperspace
+   if(key == 's') 
+     myShip.hyperspace();
 }
