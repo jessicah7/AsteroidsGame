@@ -22,6 +22,10 @@ public void draw()
   for (int i = 0; i < myAsteroid.size(); i++) {
     myAsteroid.get(i).show();
     myAsteroid.get(i).move();
+    float myDist = dist((float)myAsteroid.get(i).getX(), (float)myAsteroid.get(i).getY(), (float)myShip.getX(), (float)myShip.getY());
+    if (myDist < 30) {
+      myAsteroid.remove(i);
+    }
   }
   myShip.show();
   myShip.move();
