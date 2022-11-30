@@ -1,6 +1,7 @@
 //variable declarations
 Star[] mySky = new Star[250];
 Spaceship myShip = new Spaceship();
+ArrayList <Asteroid> myAsteroid = new ArrayList <Asteroid>();
 
 public void setup() 
 {
@@ -8,12 +9,19 @@ public void setup()
   for (int i = 0; i < mySky.length; i++) {
     mySky[i] = new Star();
   }
+  for (int i = 0; i < 15; i++) {
+    myAsteroid.add(new Asteroid());
+  }
 }
 public void draw() 
 {
   background(0, 0, 0);
   for (int i = 0; i < mySky.length; i++) {
-     mySky[i].show();
+    mySky[i].show();
+  }
+  for (int i = 0; i < myAsteroid.size(); i++) {
+    myAsteroid.get(i).show();
+    myAsteroid.get(i).move();
   }
   myShip.show();
   myShip.move();
